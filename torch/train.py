@@ -129,11 +129,11 @@ if __name__ == '__main__':
     # 数据集所在根目录
     # http://download.tensorflow.org/example_images/flower_photos.tgz
     parser.add_argument('--data-path', type=str,
-                        default="/data/flower_photos")
+                        default=r"E:\flower_photos\flower_photos")
 
     # download model weights
     # 链接: https://pan.baidu.com/s/1uZX36rvrfEss-JGj4yfzbQ  密码: 5gu1
-    parser.add_argument('--weights', type=str, default='./pre_efficientnetv2-s.pth',
+    parser.add_argument('--weights', type=str, default=r'E:\torch_efficientnetv2/pre_efficientnetv2-s.pth',
                         help='initial weights path')
     parser.add_argument('--freeze-layers', type=bool, default=True)
     parser.add_argument('--device', default='cuda:0', help='device id (i.e. 0 or 0,1 or cpu)')
