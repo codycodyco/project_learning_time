@@ -54,7 +54,7 @@ class ConvBNAct(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         if activation_layer is None:
-            activation_layer = nn.SiLU  # alias Swish  (torch>=1.7)
+            activation_layer = nn.SiLU  # alias Swish  (learning>=1.7)
 
         self.conv = nn.Conv2d(in_channels=in_planes,
                               out_channels=out_planes,

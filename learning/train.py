@@ -8,7 +8,7 @@ from torch.utils.tensorboard import SummaryWriter
 from torchvision import transforms
 import torch.optim.lr_scheduler as lr_scheduler
 
-from model import efficientnetv2_s as create_model
+from learning.t_model import efficientnetv2_s as create_model
 from my_dataset import MyDataSet
 from utils import read_split_data, train_one_epoch, evaluate
 
@@ -125,11 +125,10 @@ if __name__ == '__main__':
     parser.add_argument('--batch-size', type=int, default=8)
     parser.add_argument('--lr', type=float, default=0.01)
     parser.add_argument('--lrf', type=float, default=0.01)
-
     # 数据集所在根目录
     # http://download.tensorflow.org/example_images/flower_photos.tgz
     parser.add_argument('--data-path', type=str,
-                        default=r"E:\flower_photos\flower_photos")
+                        default=r"E:\flower_photos\test_photos_oped")
 
     # download model weights
     # 链接: https://pan.baidu.com/s/1uZX36rvrfEss-JGj4yfzbQ  密码: 5gu1

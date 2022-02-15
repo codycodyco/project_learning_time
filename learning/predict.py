@@ -6,8 +6,7 @@ from PIL import Image
 from torchvision import transforms
 import matplotlib.pyplot as plt
 
-from model import efficientnetv2_s as create_model
-
+from learning.t_model import efficientnetv2_s as create_model
 
 def main():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -21,10 +20,10 @@ def main():
         [transforms.Resize(img_size[num_model][1]),
          transforms.CenterCrop(img_size[num_model][1]),
          transforms.ToTensor(),
-         transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])])
+         transforms.Normalize([0.5, 0.5, 0.5],[0.5, 0.5, 0.5])])
 
     # load image
-    img_path = r"E:\pic\tulip.jpg"
+    img_path = r"E:\codes\deep_learning_2\web\static\to_pridict\to_pridect.png"
     assert os.path.exists(img_path), "file: '{}' dose not exist.".format(img_path)
     img = Image.open(img_path)
     plt.imshow(img)
@@ -55,7 +54,8 @@ def main():
     print_res = "class: {}   prob: {:.3}".format(class_indict[str(predict_cla)],
                                                  predict[predict_cla].numpy())
     plt.title(print_res)
-    for i in range(len(predict)):
+
+    for i in range(2):
         print("class: {:10}   prob: {:.3}".format(class_indict[str(i)],
                                                   predict[i].numpy()))
     plt.show()
